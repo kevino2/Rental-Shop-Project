@@ -21,5 +21,40 @@ sql = 'INSERT INTO stocks (
         @id = SqlRunner.run(sql, values).first()['id']
 end
 
+def self.all()
+        sql = "SELECT * FROM stocks"
+        results = SqlRunner.run( sql )
+        return results.map { |stock| Stock.new( stock ) }
+end
+
+def self.find( id )
+        sql = "SELECT * FROM stocks
+        WHERE id = $1"
+        values = [id]
+        results = SqlRunner.run( sql, values )
+        return Stock.new( results.first )
+end
+
+def self.delete_all
+        sql = "DELETE FROM stocks"
+        SqlRunner.run( sql )
+end
+
+def delete()
+        sql = "DELETE FROM rstocks
+        WHERE id = $1"
+        values = [@id]
+        SqlRunner.run( sql, values )
+end
+
+def customer()
+        sql = "SELECT c.* FROM customers c
+        INNER JOIN rentals r ON r.customer_id = c.id
+        WHERE r.stock_id = $1"
+        values = [@id]
+        results = SqlRunner.run(sql, values)
+        return results.map { |stock| Customer.new(stock) }
+end
+
 
 end

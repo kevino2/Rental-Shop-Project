@@ -22,9 +22,40 @@ attr_reader :id
   end
 
   def self.all()
-    sql = "SELECT * FROM customers"
-    results = SqlRunner.run( sql )
-    return results.map { |hash| Zombie.new( hash ) }
+          sql = "SELECT * FROM customers"
+          results = SqlRunner.run( sql )
+          return results.map { |cust| Customer.new( cust ) }
   end
+
+  def self.find( id )
+          sql = "SELECT * FROM customers
+          WHERE id = $1"
+          values = [id]
+          results = SqlRunner.run( sql, values )
+          return Customer.new( results.first )
+  end
+
+  def self.delete_all
+          sql = "DELETE FROM customers"
+          SqlRunner.run( sql )
+  end
+
+  def delete()
+          sql = "DELETE FROM rentals
+          WHERE id = $1"
+          values = [@id]
+          SqlRunner.run( sql, values )
+  end
+
+  def stock()
+          sql = "SELECT s.* FROM stocks s
+          INNER JOIN rentals r ON r.stock_id = s.id
+          WHERE r.customer_id = $1"
+          values = [@id]
+          results = SqlRunner.run(sql, values)
+          return results.map { |stock| Stock.new(stock) }
+  end
+
+
 
 end

@@ -3,9 +3,9 @@ require_relative( "../models/rental.rb" )
 require_relative( "../models/stock.rb" )
 require("pry-byebug")
 
-# Rental.delete_all()
-# Customer.delete_all()
-# Stock.delete_all()
+Rental.delete_all()
+Customer.delete_all()
+Stock.delete_all()
 
 customer1 = Customer.new({
   "name" => "Hamish MacDonald",

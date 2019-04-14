@@ -32,3 +32,10 @@ also_reload( '../models/*' )
     Rental.delete(params[:id])
     redirect to("/rentals")
   end
+
+  get '/rentals/:id/edit' do
+    @customers = Customer.all()
+    @stocks = Stock.all()
+    @rental = Rental.find_by_id(params['id'])
+    erb(:"rentals/edit")
+  end
