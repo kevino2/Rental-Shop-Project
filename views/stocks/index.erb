@@ -1,0 +1,19 @@
+<h1>Kilts</h1>
+<a class=":new-button" href="/stocks/new"><p>New Stock</p></a>
+<table>
+  <tr>
+    <th>Stock Item</th>
+    <th></th>
+    <th>Size</th>
+    <th></th>
+    <th>Product Image</th>
+  </tr>
+  <% for stock in @stocks %>
+  <tr>
+   <td> <a href="/stocks/<%= stock.id %>" > <%= stock.stock_item %> </a></td>
+   <td><%= stock.size %></td>
+   <td><img class="product_image" src="<%= stock.product_image %>" alt=""></td>
+   <td></td>
+  </tr>
+  <% end %>
+</table>

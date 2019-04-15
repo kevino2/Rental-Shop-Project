@@ -18,7 +18,7 @@ also_reload( '../models/*' )
 
   get '/rentals/new' do
     @customers = Customer.all
-    @stock = Stock.all
+    @stocks = Stock.all
     erb(:"rentals/new")
   end
 

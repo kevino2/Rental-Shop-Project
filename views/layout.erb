@@ -3,10 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Kilt Hire</title>
+    <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+    <link href="https://fonts.googleapis.com/css?family=Aclonica" rel="stylesheet">
+
   </head>
   <body>
+    <div class="left-bar">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/stock">Products</a></li>
+        <li><a href="/customers">Customers</a></li>
+      </ul>
+    </nav>
+    </div>
     <p>moo</p>
+    <div class="insert">
    <%= yield %>
+    </div>
+
   </body>
 </html>
 
@@ -41,7 +56,6 @@
     </ul>
   </nav>
   <section id="content">
-  <%= yield %>
   </section>
   </main>
 </body>

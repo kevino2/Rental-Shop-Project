@@ -4,11 +4,11 @@ require_relative( '../models/stock.rb' )
 also_reload( '../models/*' )
 
 get '/stock' do
-  @stock = stock.all()
+  @stocks = Stock.all()
   erb ( :"stocks/index" )
 end
 
 get '/stock/:id' do
-  @stock = stock.find(params['id'].to_i)
-  erb(:"stock/show")
+  @stocks = Stock.find(params['id'].to_i)
+  erb(:"stocks/show")
 end
