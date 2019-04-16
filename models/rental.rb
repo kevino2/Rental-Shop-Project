@@ -58,7 +58,7 @@ attr_reader :id
           SqlRunner.run( sql, values )
    end
 
-   # def self.find_by_id()
+   # def self.find_by_id(id)
    #        sql = "SELECT * FROM rentals
    #        WHERE id = $1"
    #        values = [@id]

@@ -35,13 +35,24 @@ attr_reader :id
           return Customer.new( results.first )
   end
 
+  def update
+  sql = "UPDATE customers SET (
+          name,
+          wallet
+          )
+          = ($1, $2)
+          WHERE id = $3"
+          values = [@name, @wallet, @id]
+          SqlRunner.run(sql, values)
+  end
+
   def self.delete_all
           sql = "DELETE FROM customers"
           SqlRunner.run( sql )
   end
 
   def delete()
-          sql = "DELETE FROM rentals
+          sql = "DELETE FROM customers
           WHERE id = $1"
           values = [@id]
           SqlRunner.run( sql, values )

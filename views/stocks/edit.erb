@@ -1,0 +1,11 @@
+<form action="/stocks/<%= @stock.id%>" method="post">
+ <label for="stock_item">Stock Item:</label>
+ <input type="text" id="stock_item" name="stock_item" value="<%=@stock.stock_item%>">
+ <label for="size">Size:</label>
+ <input type="text" id="size" name="size"value="<%=@stock.size%>">
+ <label for="size">Product Image URL:</label>
+ <input type="text" id="size" name="size"value="<%=@stock.size%>">
+ <input type="submit" value="Update Stock">
+
+</form>
+  <!-- attr_accessor :stock_item, :size, :product_image -->

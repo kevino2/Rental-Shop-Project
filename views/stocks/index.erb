@@ -3,9 +3,7 @@
 <table>
   <tr>
     <th>Stock Item</th>
-    <th></th>
     <th>Size</th>
-    <th></th>
     <th>Product Image</th>
   </tr>
   <% for stock in @stocks %>
@@ -13,7 +11,12 @@
    <td> <a href="/stocks/<%= stock.id %>" > <%= stock.stock_item %> </a></td>
    <td><%= stock.size %></td>
    <td><img class="product_image" src="<%= stock.product_image %>" alt=""></td>
-   <td></td>
+
+   <td><form action="/stocks/<%= stock.id %>/delete" method="POST">
+ <input class="new-button" type="submit" value="DELETE" />
+</form></td>
+   <td><form action="/stocks/<%= stock.id %>/edit" method="GET">
+<input class="new-button" type="submit" value="UPDATE" /></form></td>
   </tr>
   <% end %>
 </table>

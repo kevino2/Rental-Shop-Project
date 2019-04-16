@@ -1,0 +1,33 @@
+<h1>Rentals</h1>
+<a class=":new-button" href="/rentals/new"><p>New Rental</p></a>
+<table>
+  <tr>
+    <th>Rental ID</th>
+
+    <th>Customer ID</th>
+
+    <th>Customer Name</th>
+
+    <th>Stock ID</th>
+
+    <th>Stock Item</th>
+  </tr>
+  <% for rental in @rentals %>
+  <tr>
+   <td> <a href="/rentals/<%= rental.id %>" > <%= rental.id %></a></td>
+
+   <td><%= rental.customer_id %> </td>
+
+   <td> <a href="/rentals/<%= rental.customer_id %>" > <%= Customer.find(rental.customer_id).name %></a></td>
+   <td><%= rental.stock_id %> </td>
+
+   <td> <a href="/stock/<%= rental.stock_id %>" > <%= Stock.find(rental.stock_id).stock_item %></a></td>
+
+   <td><form action="/rentals/<%= rental.id %>/delete" method="POST">
+ <input class="new-button" type="submit" value="DELETE" />
+</form></td>
+   <td><form action="/stocks/<%= rental.id %>/edit" method="GET">
+<input class="new-button" type="submit" value="UPDATE" /></form></td>
+  </tr>
+  <% end %>
+</table>

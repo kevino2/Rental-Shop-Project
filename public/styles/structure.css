@@ -4,17 +4,42 @@ p{
 .product_image{
   width: 100px;
 }
-tr, th, td {
+tr, th, td, a {
     font-family: 'Aclonica', sans-serif;
 }
 .left-bar {
   position: fixed;
   height: 100%;
-  background-color: blue;
+  background-image: url('/images/15112163.jpg');
+    color: white;
   width: 20%;
-  left: 0px;
+  margin: 0;
 }
 
 .insert{
-  margin-left: 20%;
+  margin-left: 25%;
 }
+table, th, td {
+  border: 1px solid black;
+  width: 50%;
+  height: 50px;
+}
+
+.nav-links{
+ color: gold;
+}
+/* 
+.img {
+    max-width:100%;
+    height:auto;
+} */
+
+body {
+
+}
+
+/* width: 100%;
+}
+
+th {
+height: 50px; */

@@ -1,7 +1,7 @@
 require_relative('../db/sql_runner.rb')
 class Stock
 
-  attr_accessor :stock_item, :size, :product_image
+  attr_accessor :stock_item, :size, :product_image, 
   attr_reader :id
 def initialize(options)
   @id = options['id'].to_i
@@ -53,7 +53,7 @@ def customer()
         WHERE r.stock_id = $1"
         values = [@id]
         results = SqlRunner.run(sql, values)
-        return results.map { |stock| Customer.new(stock) }
+        return results.map { |cust| Customer.new(cust) }
 end
 
 

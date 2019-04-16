@@ -11,11 +11,6 @@ also_reload( '../models/*' )
     erb ( :"rentals/index" )
   end
 
-  get '/rentals/:id' do
-    @rental = Rental.find(params['id'].to_i)
-    erb(:"rentals/show")
-  end
-
   get '/rentals/new' do
     @customers = Customer.all
     @stocks = Stock.all
@@ -26,6 +21,11 @@ also_reload( '../models/*' )
     rental = Rental.new(params)
     rental.save
     redirect to("/rentals")
+  end
+
+  get '/rentals/:id' do
+    @rental = Rental.find(params['id'].to_i)
+    erb(:"rentals/show")
   end
 
   post '/rentals/:id/delete' do

@@ -3,12 +3,19 @@
 <table>
   <tr>
     <th>Name</th>
-    <th></th>
-    <th>Wallet</th>
+    <th>Store Credit</th>
+        <th></th>
+            <th></th>
   </tr>
   <% for customer in @customers %>
   <tr>
-   <td> <a href="/customers/<%= customer.id %>" > <%= customer.name %> </a></td>
+   <td> <a href="/customers/<%= customer.id %>" > <%= customer.name %></a></td>
+   <td><%= customer.wallet %></td>
+   <td><form action="/customers/<%= customer.id %>/delete" method="POST">
+ <input class="new-button" type="submit" value="DELETE" />
+</form></td>
+   <td><form action="/customers/<%= customer.id %>/edit" method="GET">
+<input class="new-button" type="submit" value="UPDATE" /></form></td>
   </tr>
   <% end %>
 </table>
