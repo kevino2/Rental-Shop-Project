@@ -8,7 +8,7 @@
   </tr>
   <% for stock in @stocks %>
   <tr>
-   <td> <a href="/stocks/<%= stock.id %>" > <%= stock.stock_item %> </a></td>
+   <td>  <%= stock.stock_item %> </td>
    <td><%= stock.size %></td>
    <td><img class="product_image" src="<%= stock.product_image %>" alt=""></td>
 

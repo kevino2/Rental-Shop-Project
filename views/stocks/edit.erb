@@ -1,10 +1,23 @@
 <form action="/stocks/<%= @stock.id%>" method="post">
  <label for="stock_item">Stock Item:</label>
  <input type="text" id="stock_item" name="stock_item" value="<%=@stock.stock_item%>">
- <label for="size">Size:</label>
- <input type="text" id="size" name="size"value="<%=@stock.size%>">
+
+ <label for="size">Size</label>
+   <select name="size" id="size">
+     <option value="" selected disabled>Select a size</option>
+     <option value="Small">Small</option>
+     <option value="Medium">Medium</option>
+     <option value="Large">Large</option>
+     <option value="Extra Large">Extra Large</option>
+   </select>
+
+
+
+
+
  <label for="size">Product Image URL:</label>
- <input type="text" id="size" name="size"value="<%=@stock.size%>">
+ <input type="text" id="size" name="size"value="<%=@stock.product_image%>">
+
  <input type="submit" value="Update Stock">
 
 </form>

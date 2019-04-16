@@ -58,11 +58,12 @@ attr_reader :id
           SqlRunner.run( sql, values )
    end
 
-   # def self.find_by_id(id)
-   #        sql = "SELECT * FROM rentals
-   #        WHERE id = $1"
-   #        values = [@id]
-   #        result = SqlRunner.run ( sql, values )
-   #        return Rental.new( result.first )
-   # end
+   def self.find( id )
+           sql = "SELECT * FROM rentals
+           WHERE id = $1"
+           values = [id]
+           results = SqlRunner.run( sql, values )
+           return Rental.new( results.first )
+   end
+
 end

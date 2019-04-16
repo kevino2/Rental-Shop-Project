@@ -7,7 +7,8 @@ CREATE TABLE stocks
   id SERIAL PRIMARY KEY,
   stock_item VARCHAR(255),
   size VARCHAR(255),
-  product_image VARCHAR(255)
+  product_image VARCHAR(255),
+  rented BOOLEAN
 );
 
 CREATE TABLE customers

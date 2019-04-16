@@ -20,6 +20,11 @@ also_reload( '../models/*' )
   post '/rentals' do
     rental = Rental.new(params)
     rental.save
+
+    item = Stock.find(params[:stock_id])
+    item.rented = true
+    item.stock_rented_true()
+    # add bolean t or f calling method
     redirect to("/rentals")
   end
 
@@ -29,13 +34,43 @@ also_reload( '../models/*' )
   end
 
   post '/rentals/:id/delete' do
-    Rental.delete(params[:id])
+    rental = Rental.find(params[:id])
+
+    stock_item = rental.stock()
+    stock_item.stock_rented_true
+
+    rental.delete()
+
     redirect to("/rentals")
   end
 
   get '/rentals/:id/edit' do
     @customers = Customer.all()
     @stocks = Stock.all()
-    @rental = Rental.find_by_id(params['id'])
+    @rental = Rental.find(params['id'])
     erb(:"rentals/edit")
+  end
+
+  #
+  # get '/customers/:id/edit' do
+  #   @customer = Customer.find(params['id'].to_i)
+  #   erb(:"customers/edit")
+  # end
+
+  post '/rentals/:id/update' do
+    @rentals = Rental.new(params)
+    @rentals.update
+  end
+
+  post '/rentals/:id' do
+     id = params[:id]
+     @rental = Rental.new(params)
+     @rental.update()
+     redirect ('/rentals')
+  end
+
+  post '/rentals/:id/delete' do
+    rental = Rental.find(params[:id])
+    rental.delete
+    redirect to("/rentals")
   end

@@ -14,10 +14,14 @@
     Select stock item:
     <select name="stock_id">
       <% for stock in @stocks %>
+      <% %>
+      <% if stock.rented == "f" %>
       <option value="<%= stock.id %>"><%= stock.stock_item %></option>
+      <% end %>
       <% end %>
     </select>
   </label>
+
 
   <input type='submit' value="Confirm">
 </form>

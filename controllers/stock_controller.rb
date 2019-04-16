@@ -12,7 +12,7 @@ get '/stocks/new' do
   erb(:"stocks/new")
 end
 
-get '/stock/:id' do
+get '/stocks/:id' do
   @stocks = Stock.find(params['id'].to_i)
   erb(:"stocks/show")
 end
@@ -23,7 +23,7 @@ post '/stock' do
   redirect to("/stock")
 end
 
-get '/stock/:id/edit' do
+get '/stocks/:id/edit' do
   @stock = Stock.find(params['id'].to_i)
   erb(:"stocks/edit")
 end
@@ -31,4 +31,17 @@ end
 post '/stocks/:id/update' do
   @stocks = stock.new(params)
   @stocks.update
+end
+
+post '/stocks/:id' do
+   id = params[:id]
+   @stock = Stock.new(params)
+   @stock.update()
+   redirect ('/stock')
+end
+
+post '/stocks/:id/delete' do
+  stock = Stock.find(params[:id])
+  stock.delete
+  redirect to("/stock")
 end

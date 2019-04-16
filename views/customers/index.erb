@@ -3,13 +3,13 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Store Credit</th>
+    <th>Store Cred</th>
         <th></th>
             <th></th>
   </tr>
   <% for customer in @customers %>
   <tr>
-   <td> <a href="/customers/<%= customer.id %>" > <%= customer.name %></a></td>
+   <td><%= customer.name %></td>
    <td><%= customer.wallet %></td>
    <td><form action="/customers/<%= customer.id %>/delete" method="POST">
  <input class="new-button" type="submit" value="DELETE" />
