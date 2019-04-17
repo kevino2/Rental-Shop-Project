@@ -1,4 +1,8 @@
-<h1>Rental</h1>
+<br>
+<br>
+<br>
+<br>
+<h1>New Rental</h1>
 
 <form action="/rentals" method="post">
   <label>
@@ -9,34 +13,21 @@
      <% end %>
     </select>
   </label>
-
+  <br>
+  <br>
   <label>
     Select stock item:
     <select name="stock_id">
       <% for stock in @stocks %>
       <% %>
       <% if stock.rented == "f" %>
-      <option value="<%= stock.id %>"><%= stock.stock_item %></option>
+      <option value="<%= stock.id %>" required><%= stock.stock_item %></option>
       <% end %>
       <% end %>
     </select>
   </label>
-
+<br>
+<br>
 
   <input type='submit' value="Confirm">
 </form>
-
-<!-- :stock_item, :size, :product_image -->
-
-<!--
-<form action="/customers" method="POST">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name">
-
-  <label for="wallet">Wallet:</label>
-  <input type="integer" id="wallet" name="wallet">
-
-
-<input type="submit" value="Create Customer" ="">
-
-</form> -->

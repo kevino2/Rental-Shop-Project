@@ -6,11 +6,9 @@ attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i
-     # if options['id']
     @customer_id = options['customer_id']
-    # .to_i
     @stock_id = options['stock_id']
-    # .to_i
+
   end
 
   def save

@@ -1,3 +1,16 @@
+header {
+  background-image: url('/images/il_1588xN.888793462_7n2e.jpg');
+  border-top: 1px solid gold;
+  border-bottom: 1px solid gold;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  font-family: 'Aclonica', sans-serif;
+  color: gold;
+
+}
+
 p{
   font-family: Aclonica;
 }
@@ -13,7 +26,29 @@ tr, th, td, a {
   background-image: url('/images/15112163.jpg');
     color: white;
   width: 20%;
-  margin: 0;
+  margin-top: 3%;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+input[type=submit] {
+  width: 100%;
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .insert{
@@ -26,9 +61,11 @@ table, th, td {
 }
 
 .nav-links{
- color: gold;
+   color: gold;
+   font-family: 'Aclonica', sans-serif;
+   font-size: 260%;
 }
-/* 
+/*
 .img {
     max-width:100%;
     height:auto;

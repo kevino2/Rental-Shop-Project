@@ -18,7 +18,7 @@ sql = 'INSERT INTO stocks (
         product_image,
         rented
         )
-        VALUES ($1, $2, $3, $4) RETURNING *'
+        VALUES ($1, $2, $3, $4) RETURNING id'
         values = [@stock_item, @size, @product_image, @rented]
         @id = SqlRunner.run(sql, values).first()['id']
 end
@@ -85,5 +85,17 @@ def  Stock.currently_rented ()
         return results.map { |stock| Stock.new(stock)  }
 end
 
+def update
+        sql = "UPDATE stocks SET (
+        stock_item,
+        size,
+        product_image,
+        rented
+        )
+        = ($1, $2, $3, $4)
+        WHERE id = $5"
+        values = [@stock_item, @size, @product_image, @rented, @id]
+        SqlRunner.run(sql, values)
+end
 
 end

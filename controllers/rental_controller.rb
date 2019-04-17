@@ -12,13 +12,18 @@ also_reload( '../models/*' )
   end
 
   get '/rentals/new' do
+
     @customers = Customer.all
     @stocks = Stock.all
+
     erb(:"rentals/new")
   end
 
+
+
   post '/rentals' do
     rental = Rental.new(params)
+    # binding.pry
     rental.save
 
     item = Stock.find(params[:stock_id])
